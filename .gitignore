@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-.venv/
+**/.venv/
 **/.vscode/
 **/.__pycache__/
 **/.pytest_cache/ 
-=======
-** /entorno/
->>>>>>> 73d55454614079e0d491a68cbb8027128c1db51a
