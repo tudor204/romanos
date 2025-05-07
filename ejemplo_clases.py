@@ -1,4 +1,12 @@
-class Heroe:
+class Persona:
+    apellido = ""
+    dni = ""
+    direccion = ""
+    nacionalidad = ""
+
+
+
+class Heroe(Persona):#Heroe hereda la clase persona
     #nombre, poder, apodo son variables de la clase Heroe
     nombre=""
     poder=""

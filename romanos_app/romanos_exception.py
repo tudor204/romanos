@@ -1,0 +1,2 @@
+class RomanNumberError(Exception):
+    pass

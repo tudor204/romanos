@@ -1,4 +1,4 @@
-from main import entero_a_romano, RomanNumberError
+from old_main import entero_a_romano, RomanNumberError
 import pytest 
 def test_prueba_entero_a_romano_1994():
     assert entero_a_romano(1994)=="MCMXCIV"
