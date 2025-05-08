@@ -1,16 +1,19 @@
 from romanos_exception import RomanNumberError
-from utils.utiles import dic_entero_a_romanos, dic_romano_a_entero, restas
+from utiles import dic_entero_a_romanos, dic_romano_a_entero, restas
 
 class NumeroRomano:
     def __init__(self, valor):
         self.valor = valor
         self.valor_romano = ""
         self.valor_entero = 0
+        self.representacion_romano =""
 
-        if isinstance(self.valor, str):  # Si es string, asumimos que es romano
-            self.romano_a_entero(self.valor)
+        if isinstance(valor, str):  # Si es string, asumimos que es romano
+            self.representacion_romano = valor
+            self.valor = self.romano_a_entero(valor)
         elif isinstance(valor, int):  # Si es entero
-            self.entero_a_romano(self.valor)
+            self.valor = valor
+            self.representacion_romano = self.entero_a_romano(self.valor)            
         else:
             raise RomanNumberError("El valor debe ser un entero o una cadena romana")
 
@@ -71,10 +74,27 @@ class NumeroRomano:
         return self.valor_entero
 
     def __repr__(self):
-        return f"Romano: {self.valor_romano}, Entero: {self.valor_entero}"
+        return self.representacion_romano
+    
+    def __add__(self,otro):
+        if isinstance(otro,NumeroRomano):
+            return NumeroRomano(self.valor+otro.valor)
+        elif isinstance(otro,int):
+            return NumeroRomano(self.valor+otro)
+        
+    def __sub__(self,otro):
+          if isinstance(otro,NumeroRomano):
+            return NumeroRomano(self.valor-otro.valor)
+          elif isinstance(otro,int):
+            return NumeroRomano(self.valor-otro)
 
-probar = NumeroRomano("XV")
-print(probar)  # Romano: XX, Entero: 20
 
-probar2 = NumeroRomano(345)
-print(probar2)  # Romano: MCMXCIV, Entero: 1994
+probar1 = NumeroRomano("XXVII")
+print("romano a entero representacion:", probar1)
+print("valor entero:",probar1.valor)
+print("Valor romano:",probar1.representacion_romano)
+probar2 = NumeroRomano(1977)
+print("romano a entero representacion:", probar1)
+print("valor entero:",probar2.valor)
+print("Valor romano:",probar2.representacion_romano)
+
