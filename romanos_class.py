@@ -88,7 +88,7 @@ class NumeroRomano:
           elif isinstance(otro,int):
             return NumeroRomano(self.valor-otro)
 
-
+"""
 probar1 = NumeroRomano("XXVII")
 print("romano a entero representacion:", probar1)
 print("valor entero:",probar1.valor)
@@ -97,4 +97,4 @@ probar2 = NumeroRomano(1977)
 print("romano a entero representacion:", probar1)
 print("valor entero:",probar2.valor)
 print("Valor romano:",probar2.representacion_romano)
-
+""" 
